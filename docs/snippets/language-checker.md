@@ -21,7 +21,7 @@ language-checker [globs ...] [flags]
 ### Options
 
 ```
-  -c, --config string           Config file (default is .woke.yaml in current directory, or $HOME)
+  -c, --config string           Config file (default is .langcheck.yaml in current directory, or $HOME)
       --debug                   Enable debug logging
       --disable-default-rules   Disable the default ruleset
       --exit-1-on-failure       Exit with exit code 1 on failures

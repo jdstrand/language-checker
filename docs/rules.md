@@ -59,7 +59,7 @@ You can configure options for each rule. Add an `options` key to your rule defin
 
 * If `true`, the rule note will be included in the output message explaining why this finding is not inclusive
 * If `false`, the rule note will not be included in the output message
-* If `not set`, `include_note` in your `language-checker` config file (ie `.woke.yml`) regulates if the note should be included in the output message (default: `false`).
+* If `not set`, `include_note` in your `language-checker` config file (ie `.langcheck.yml`) regulates if the note should be included in the output message (default: `false`).
 
 ### `categories`
 
@@ -70,7 +70,7 @@ You can configure options for each rule. Add an `options` key to your rule defin
 
 ## Disabling Default Rules
 
-You can disable default rules by providing a rule in your `language-checker` config file (ie `.woke.yml`), with no terms or alternatives.
+You can disable default rules by providing a rule in your `language-checker` config file (ie `.langcheck.yml`), with no terms or alternatives.
 
 This will disable the default `whitelist` rule:
 

@@ -148,7 +148,7 @@ func init() {
 	cobra.OnInitialize(initConfig)
 	rootCmd.Version = getVersion("short")
 
-	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "", "Config file (default is .woke.yaml in current directory, or $HOME)")
+	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "", "Config file (default is .langcheck.yaml in current directory, or $HOME)")
 	rootCmd.PersistentFlags().BoolVar(&exitOneOnFailure, "exit-1-on-failure", false, "Exit with exit code 1 on failures")
 	rootCmd.PersistentFlags().BoolVar(&stdin, "stdin", false, "Read from stdin")
 	rootCmd.PersistentFlags().BoolVar(&debug, "debug", false, "Enable debug logging")
@@ -199,8 +199,8 @@ func initConfig() {
 		// Use config file from the flag.
 		viper.SetConfigFile(cfgFile)
 	} else {
-		// Search config in working directory, then home directory with name ".woke.[yml|yaml]"
-		viper.SetConfigName(".woke")
+		// Search config in working directory, then home directory with name ".langcheck.[yml|yaml]"
+		viper.SetConfigName(".langcheck")
 		viper.AddConfigPath(".")
 
 		// Find home directory.

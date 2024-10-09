@@ -245,9 +245,9 @@ func Test_relative(t *testing.T) {
 	cwd, err := os.Getwd()
 	assert.NoError(t, err)
 
-	assert.Equal(t, ".woke.yml", relative(filepath.Join(cwd, ".woke.yml")))
-	assert.Equal(t, ".woke.yml", relative(".woke.yml"))
-	assert.Equal(t, "dir/.woke.yml", relative("dir/.woke.yml"))
+	assert.Equal(t, ".langcheck.yml", relative(filepath.Join(cwd, ".langcheck.yml")))
+	assert.Equal(t, ".langcheck.yml", relative(".langcheck.yml"))
+	assert.Equal(t, "dir/.langcheck.yml", relative("dir/.langcheck.yml"))
 }
 
 func Test_RemoveRule(t *testing.T) {

@@ -4,7 +4,7 @@
 
 ## Config file
 
-Configure your custom rules config in `.woke.yaml` or `.woke.yml`. `language-checker` uses the following precedence order. Each item takes precedence over the item below it:
+Configure your custom rules config in `.langcheck.yaml` or `.langcheck.yml`. `language-checker` uses the following precedence order. Each item takes precedence over the item below it:
 
 - `current working directory`
 - `$HOME`
