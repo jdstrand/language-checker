@@ -24,7 +24,7 @@ package main
 import (
 	"time"
 
-	"github.com/get-woke/woke/cmd"
+	"github.com/jdstrand/language-checker/cmd"
 
 	"github.com/mattn/go-colorable"
 	"github.com/rs/zerolog"

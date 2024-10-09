@@ -9,7 +9,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/get-woke/woke/pkg/rule"
+	"github.com/jdstrand/language-checker/pkg/rule"
 
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
@@ -167,7 +167,7 @@ func loadRemoteConfig(url string) (c Config, err error) {
 
 func relative(filename string) string {
 	// viper provides an absolute path to the config file, but we want the relative
-	// path to the config file from the current directory to make it easy for woke to ignore it
+	// path to the config file from the current directory to make it easy for language-checker to ignore it
 	if filepath.IsAbs(filename) {
 		cwd, _ := os.Getwd()
 		if relfilename, err := filepath.Rel(cwd, filename); err == nil {

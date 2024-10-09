@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/get-woke/woke/pkg/result"
-	"github.com/get-woke/woke/pkg/rule"
+	"github.com/jdstrand/language-checker/pkg/result"
+	"github.com/jdstrand/language-checker/pkg/rule"
 
 	"github.com/rs/zerolog/log"
 )
@@ -66,7 +66,7 @@ func (p *SonarQube) Print(fs *result.FileResults) error {
 
 	for _, res := range fs.Results {
 		issue = Issue{
-			EngineID: `woke`,
+			EngineID: `language-checker`,
 			Type:     `CODE_SMELL`,
 			Severity: calculateSonarSeverity(res.GetSeverity()),
 			RuleID:   res.GetRuleName(),

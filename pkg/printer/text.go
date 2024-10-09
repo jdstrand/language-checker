@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/get-woke/woke/pkg/result"
+	"github.com/jdstrand/language-checker/pkg/result"
 
 	"github.com/fatih/color"
 )

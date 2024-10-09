@@ -5,7 +5,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/get-woke/woke/pkg/result"
+	"github.com/jdstrand/language-checker/pkg/result"
 
 	env "github.com/caitlinelfring/go-env-default"
 	"github.com/rs/zerolog/log"

@@ -3,7 +3,7 @@ package result
 import (
 	"go/token"
 
-	"github.com/get-woke/woke/pkg/rule"
+	"github.com/jdstrand/language-checker/pkg/rule"
 )
 
 // Result is an interface for a finding of a rule

@@ -11,7 +11,7 @@ import (
 	"github.com/go-git/go-billy/v5/osfs"
 	"github.com/rs/zerolog/log"
 
-	"github.com/get-woke/woke/pkg/util"
+	"github.com/jdstrand/language-checker/pkg/util"
 )
 
 // Ignore is a gitignore-style object to ignore files/directories

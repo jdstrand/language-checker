@@ -5,12 +5,12 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/get-woke/woke/pkg/ignore"
-	"github.com/get-woke/woke/pkg/printer"
-	"github.com/get-woke/woke/pkg/result"
-	"github.com/get-woke/woke/pkg/rule"
-	"github.com/get-woke/woke/pkg/util"
-	"github.com/get-woke/woke/pkg/walker"
+	"github.com/jdstrand/language-checker/pkg/ignore"
+	"github.com/jdstrand/language-checker/pkg/printer"
+	"github.com/jdstrand/language-checker/pkg/result"
+	"github.com/jdstrand/language-checker/pkg/rule"
+	"github.com/jdstrand/language-checker/pkg/util"
+	"github.com/jdstrand/language-checker/pkg/walker"
 
 	env "github.com/caitlinelfring/go-env-default"
 	"github.com/rs/zerolog/log"

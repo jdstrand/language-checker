@@ -1,3 +1,3 @@
-FROM alpine:3.12
-COPY woke /usr/bin/
-CMD ["woke"]
+FROM alpine:3.20
+COPY language-checker /usr/bin/
+CMD ["language-checker"]

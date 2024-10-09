@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/get-woke/woke/pkg/result"
+	"github.com/jdstrand/language-checker/pkg/result"
 )
 
 // Checkstyle is a Checkstyle printer meant for use by a Checkstyle annotation
@@ -51,7 +51,7 @@ func (p *Checkstyle) Print(fs *result.FileResults) error {
 			Line:     r.GetStartPosition().Line,
 			Message:  r.Reason(),
 			Severity: r.GetSeverity().String(),
-			Source:   "woke",
+			Source:   "language-checker",
 		})
 	}
 	return p.encoder.Encode(f)

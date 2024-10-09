@@ -4,7 +4,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/get-woke/woke/pkg/rule"
+	"github.com/jdstrand/language-checker/pkg/rule"
 )
 
 // PathResult is a Result meant for showing findings in a file path

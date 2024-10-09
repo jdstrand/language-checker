@@ -1,4 +1,4 @@
-module github.com/get-woke/woke
+module github.com/jdstrand/language-checker
 
 go 1.18
 

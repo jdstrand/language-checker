@@ -30,11 +30,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/get-woke/woke/pkg/config"
-	"github.com/get-woke/woke/pkg/ignore"
-	"github.com/get-woke/woke/pkg/output"
-	"github.com/get-woke/woke/pkg/parser"
-	"github.com/get-woke/woke/pkg/printer"
+	"github.com/jdstrand/language-checker/pkg/config"
+	"github.com/jdstrand/language-checker/pkg/ignore"
+	"github.com/jdstrand/language-checker/pkg/output"
+	"github.com/jdstrand/language-checker/pkg/parser"
+	"github.com/jdstrand/language-checker/pkg/printer"
 
 	"github.com/mitchellh/go-homedir"
 	"github.com/rs/zerolog"
@@ -64,10 +64,10 @@ var (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "woke [globs ...]",
+	Use:   "language-checker [globs ...]",
 	Short: "Check for usage of non-inclusive language in your code and provide alternatives",
 	Long: `
-woke is a linter that will check your source code for usage of non-inclusive
+language-checker is a linter that will check your source code for usage of non-inclusive
 language and provide suggestions for alternatives. Rules can be customized
 to suit your needs.
 
@@ -87,7 +87,7 @@ func rootRunE(cmd *cobra.Command, args []string) error {
 	defer func() {
 		log.Debug().
 			TimeDiff("durationMS", time.Now(), start).
-			Msg("woke completed")
+			Msg("language-checker completed")
 	}()
 
 	cfg, err := config.NewConfig(viper.ConfigFileUsed(), disableDefaultRules)
@@ -185,7 +185,7 @@ func getVersion(t string) string {
 	case "short":
 		return Version
 	default:
-		return fmt.Sprintf("woke version %s built from %s on %s", Version, Commit, Date)
+		return fmt.Sprintf("language-checker version %s built from %s on %s", Version, Commit, Date)
 	}
 }
 

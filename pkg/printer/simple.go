@@ -5,7 +5,7 @@ import (
 	"go/token"
 	"io"
 
-	"github.com/get-woke/woke/pkg/result"
+	"github.com/jdstrand/language-checker/pkg/result"
 )
 
 // Simple is a simple printer meant for a machine to read

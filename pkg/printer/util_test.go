@@ -3,8 +3,8 @@ package printer
 import (
 	"go/token"
 
-	"github.com/get-woke/woke/pkg/result"
-	"github.com/get-woke/woke/pkg/rule"
+	"github.com/jdstrand/language-checker/pkg/result"
+	"github.com/jdstrand/language-checker/pkg/rule"
 )
 
 func generateFileResult() *result.FileResults {

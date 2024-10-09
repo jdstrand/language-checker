@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/get-woke/woke/pkg/rule"
+	"github.com/jdstrand/language-checker/pkg/rule"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -22,7 +22,7 @@ func TestSonarQube_Print(t *testing.T) {
 	assert.NoError(t, p.Print(res))
 	got := buf.String()
 
-	expected := `{"engineId":"woke","ruleId":"whitelist","primaryLocation":{"message":"` + "`" + `whitelist` + "`" + ` may be insensitive, use ` + "`" + `allowlist` + "`" + ` instead","filePath":"foo.txt","textRange":{"startLine":1,"startColumn":6,"endColumn":15}},"type":"CODE_SMELL","severity":"MINOR"}` + "\n"
+	expected := `{"engineId":"language-checker","ruleId":"whitelist","primaryLocation":{"message":"` + "`" + `whitelist` + "`" + ` may be insensitive, use ` + "`" + `allowlist` + "`" + ` instead","filePath":"foo.txt","textRange":{"startLine":1,"startColumn":6,"endColumn":15}},"type":"CODE_SMELL","severity":"MINOR"}` + "\n"
 	assert.Equal(t, expected, got)
 }
 
@@ -33,7 +33,7 @@ func TestSonarQube_PrintPath(t *testing.T) {
 	assert.NoError(t, p.Print(res))
 	got := buf.String()
 
-	expected := `{"engineId":"woke","ruleId":"whitelist","primaryLocation":{"message":"` + "`" + `whitelist` + "`" + ` may be insensitive, use ` + "`" + `allowlist` + "`" + ` instead","filePath":"whitelist.txt","textRange":{"startLine":1,"startColumn":0,"endColumn":1}},"type":"CODE_SMELL","severity":"MINOR"}` + "\n"
+	expected := `{"engineId":"language-checker","ruleId":"whitelist","primaryLocation":{"message":"` + "`" + `whitelist` + "`" + ` may be insensitive, use ` + "`" + `allowlist` + "`" + ` instead","filePath":"whitelist.txt","textRange":{"startLine":1,"startColumn":0,"endColumn":1}},"type":"CODE_SMELL","severity":"MINOR"}` + "\n"
 	assert.Equal(t, expected, got)
 }
 
@@ -76,6 +76,6 @@ func TestSonarQube_Multiple(t *testing.T) {
 	p.End()
 	got := buf.String()
 
-	expected := "{\"issues\":[{\"engineId\":\"woke\",\"ruleId\":\"whitelist\",\"primaryLocation\":{\"message\":\"`whitelist` may be insensitive, use `allowlist` instead\",\"filePath\":\"foo.txt\",\"textRange\":{\"startLine\":1,\"startColumn\":6,\"endColumn\":15}},\"type\":\"CODE_SMELL\",\"severity\":\"MINOR\"}\n,{\"engineId\":\"woke\",\"ruleId\":\"slave\",\"primaryLocation\":{\"message\":\"`slave` may be insensitive, use `follower` instead\",\"filePath\":\"bar.txt\",\"textRange\":{\"startLine\":1,\"startColumn\":6,\"endColumn\":15}},\"type\":\"CODE_SMELL\",\"severity\":\"MAJOR\"}\n,{\"engineId\":\"woke\",\"ruleId\":\"test\",\"primaryLocation\":{\"message\":\"`test` may be insensitive, use `alternative` instead\",\"filePath\":\"barfoo.txt\",\"textRange\":{\"startLine\":1,\"startColumn\":6,\"endColumn\":15}},\"type\":\"CODE_SMELL\",\"severity\":\"INFO\"}\n]}\n"
+	expected := "{\"issues\":[{\"engineId\":\"language-checker\",\"ruleId\":\"whitelist\",\"primaryLocation\":{\"message\":\"`whitelist` may be insensitive, use `allowlist` instead\",\"filePath\":\"foo.txt\",\"textRange\":{\"startLine\":1,\"startColumn\":6,\"endColumn\":15}},\"type\":\"CODE_SMELL\",\"severity\":\"MINOR\"}\n,{\"engineId\":\"language-checker\",\"ruleId\":\"slave\",\"primaryLocation\":{\"message\":\"`slave` may be insensitive, use `follower` instead\",\"filePath\":\"bar.txt\",\"textRange\":{\"startLine\":1,\"startColumn\":6,\"endColumn\":15}},\"type\":\"CODE_SMELL\",\"severity\":\"MAJOR\"}\n,{\"engineId\":\"language-checker\",\"ruleId\":\"test\",\"primaryLocation\":{\"message\":\"`test` may be insensitive, use `alternative` instead\",\"filePath\":\"barfoo.txt\",\"textRange\":{\"startLine\":1,\"startColumn\":6,\"endColumn\":15}},\"type\":\"CODE_SMELL\",\"severity\":\"INFO\"}\n]}\n"
 	assert.Equal(t, expected, got)
 }

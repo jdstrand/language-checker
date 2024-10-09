@@ -59,7 +59,7 @@ You can configure options for each rule. Add an `options` key to your rule defin
 
 * If `true`, the rule note will be included in the output message explaining why this finding is not inclusive
 * If `false`, the rule note will not be included in the output message
-* If `not set`, `include_note` in your `woke` config file (ie `.woke.yml`) regulates if the note should be included in the output message (default: `false`).
+* If `not set`, `include_note` in your `language-checker` config file (ie `.woke.yml`) regulates if the note should be included in the output message (default: `false`).
 
 ### `categories`
 
@@ -70,7 +70,7 @@ You can configure options for each rule. Add an `options` key to your rule defin
 
 ## Disabling Default Rules
 
-You can disable default rules by providing a rule in your `woke` config file (ie `.woke.yml`), with no terms or alternatives.
+You can disable default rules by providing a rule in your `language-checker` config file (ie `.woke.yml`), with no terms or alternatives.
 
 This will disable the default `whitelist` rule:
 
@@ -81,19 +81,19 @@ rules:
 
 ### Disable all Default Rules
 
-There may be a case where you want full control over the rules you want to run with woke.
+There may be a case where you want full control over the rules you want to run with language-checker.
 
 You can either disable each default rule via the instructions above.
 
-Or you can run woke with `--disable-default-rules` to completely disable all default rules.
+Or you can run language-checker with `--disable-default-rules` to completely disable all default rules.
 
 !!! note
-    `woke` will fail to run if you use `--disable-default-rules` without providing your own rules
-    because that would mean running `woke` without any rules, which is pointless.
+    `language-checker` will fail to run if you use `--disable-default-rules` without providing your own rules
+    because that would mean running `language-checker` without any rules, which is pointless.
 
 ## Excluding Categories of Rules
 
-You can also specify any number of rule categories to be excluded, or filtered out, from within your `woke` configuration. If any rules in a configuration file have matching categories, they will be excluded and will not be run against the target files.
+You can also specify any number of rule categories to be excluded, or filtered out, from within your `language-checker` configuration. If any rules in a configuration file have matching categories, they will be excluded and will not be run against the target files.
 
 This example will exclude `rule1` and `rule2`, but will still use `rule3`:
 

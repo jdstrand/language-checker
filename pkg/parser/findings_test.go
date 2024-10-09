@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/get-woke/woke/pkg/result"
-	"github.com/get-woke/woke/pkg/rule"
+	"github.com/jdstrand/language-checker/pkg/result"
+	"github.com/jdstrand/language-checker/pkg/rule"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -95,7 +95,7 @@ func TestGenerateFileFindings(t *testing.T) {
 // newFile creates a new file for testing. The file, and the directory that the file
 // was created in will be removed at the completion of the test
 func newFile(t *testing.T, text string) (*os.File, error) {
-	return newFileWithPrefix(t, "woke-", text)
+	return newFileWithPrefix(t, "langcheck-", text)
 }
 
 // newFile creates a new file with the prefix defined for testing.

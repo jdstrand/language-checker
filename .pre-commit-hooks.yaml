@@ -1,12 +1,12 @@
-- id: woke
-  name: 'woke'
+- id: language-checker
+  name: 'language-checker'
   entry: scripts/pre-commit.sh
   language: 'script'
-  description: "Runs `woke`"
-- id: woke-from-source
-  name: 'woke'
-  entry: woke
+  description: "Runs `language-checker`"
+- id: language-checker-from-source
+  name: 'language-checker'
+  entry: language-checker
   args: [--exit-1-on-failure]
   # The 'go' binary on your path must be at least version 1.18.
   language: 'golang'
-  description: "Runs `woke`, building it from source on demand"
+  description: "Runs `language-checker`, building it from source on demand"

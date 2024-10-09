@@ -1,18 +1,7 @@
 # Contributing
 
-`woke` is an Open Source project that started when I realized there weren't any OSS tools to catch insensitive and non-inclusive language within source code.
-
-By participating in this project, you agree to abide by this projects [Code Of Conduct](./CODE_OF_CONDUCT.md).
-
-`woke` is essentially a **language-agnostic linter**. I've taken my favorite parts of other linters
-and used that as a guiding force.
-
-## Rules
-
-A few rules for when contributing to this project:
-
 * The goal of this project is to identify places within text files where better, inclusive language can be used. Please don't make contributions that don't push this goal forward.
-* This project is not the forum to determine _what_ is inclusive language and _what_ is insensitive language. Contributions should be limited to providing consumers of `woke` the ability to make their own decisions regarding conscious language.
+* This project is not the forum to determine _what_ is inclusive language and _what_ is insensitive language. Contributions should be limited to providing consumers of `language-checker` the ability to make their own decisions regarding conscious language.
 * You will participate in discussions that embody the spirit of this project and work towards building a healthy, supportive, and productive culture, and an environment where everyone feels welcome and included.
 * If you're adding linter-based features, try to link to other well-known linters as a reference for why you want the feature added and what benefit it provides.
 * Programming language-specific changes should be avoided at all costs. Please keep this project programming language-agnostic.
@@ -21,10 +10,7 @@ A few rules for when contributing to this project:
 
 ## How to contribute
 
-1. Fork, then clone the repo:
-
-        git clone git@github.com:your-username/woke.git
-
+1. Fork, then clone the repo
 1. Setup ([Dev Container](https://code.visualstudio.com/docs/remote/containers))
    1. Add VS Code [Remote Container Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
    1. Remote-Containers: Open Folder in Container... command from the Command Palette (`F1`) or quick actions Status bar item on the bottom left of VS Code

@@ -6,7 +6,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/get-woke/woke/pkg/result"
+	"github.com/jdstrand/language-checker/pkg/result"
 
 	"github.com/stretchr/testify/assert"
 )

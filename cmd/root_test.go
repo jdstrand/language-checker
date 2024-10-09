@@ -7,8 +7,8 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/get-woke/woke/pkg/output"
-	"github.com/get-woke/woke/pkg/parser"
+	"github.com/jdstrand/language-checker/pkg/output"
+	"github.com/jdstrand/language-checker/pkg/parser"
 
 	"github.com/mitchellh/go-homedir"
 	"github.com/rs/zerolog"
@@ -20,9 +20,12 @@ import (
 // run profiling with
 // go test -v -cpuprofile cpu.prof -memprofile mem.prof -bench=. ./cmd
 // memory:
-//    go tool pprof mem.prof
+//
+//	go tool pprof mem.prof
+//
 // cpu:
-//    go tool pprof cpu.prof
+//
+//	go tool pprof cpu.prof
 func BenchmarkRootRunE(b *testing.B) {
 	zerolog.SetGlobalLevel(zerolog.NoLevel)
 	output.Stdout = io.Discard
@@ -100,7 +103,7 @@ func TestRunE(t *testing.T) {
 	t.Run("no findings found with custom message", func(t *testing.T) {
 		buf := new(bytes.Buffer)
 		output.Stdout = buf
-		setTestConfigFile(t, "../testdata/.woke-custom-exit-success.yaml")
+		setTestConfigFile(t, "../testdata/.langcheck-custom-exit-success.yaml")
 		err := rootRunE(new(cobra.Command), []string{"../testdata/good.yml"})
 		assert.NoError(t, err)
 

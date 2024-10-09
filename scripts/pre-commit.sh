@@ -2,9 +2,9 @@
 
 set -e
 
-if ! type woke > /dev/null; then
-  echo "woke is not installed, or is not available in your PATH. See https://docs.getwoke.tech/installation."
+if ! type language-checker > /dev/null; then
+  echo "language-checker is not installed, or is not available in your PATH."
   exit 1
 fi
 
-exec woke "${@}" --exit-1-on-failure
+exec language-checker "${@}" --exit-1-on-failure

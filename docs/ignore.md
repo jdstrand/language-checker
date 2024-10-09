@@ -13,7 +13,7 @@ ignore_files:
 !!! note "`.git`"
     Woke will always ignore the `.git` directory so there's no need to include it in any of the ignore configurations.
 
-`woke` will also automatically ignore anything listed in `.gitignore`, `.ignore`, and `.git/info/exclude`.
+`language-checker` will also automatically ignore anything listed in `.gitignore`, `.ignore`, and `.git/info/exclude`.
 
 ## `.wokeignore`
 
@@ -28,15 +28,15 @@ There may be times where you don't want to ignore an entire file.
 You may ignore a specific line for one or more rules by creating an in-line or next-line comment.
 
 This functionality is very rudimentary, it does a simple search for the phrase. Since
-`woke` is just a text file analyzer, it has no concept of the comment syntax for every file
+`language-checker` is just a text file analyzer, it has no concept of the comment syntax for every file
 type it might encounter.
 
 For in-line ignoring, simply add the following to the line you wish to ignore, using comment syntax that is supported for your file type.
 
 !!! danger
-    `woke` is not responsible for broken code due to in-line ignoring. Make sure you comment correctly!
+    `language-checker` is not responsible for broken code due to in-line ignoring. Make sure you comment correctly!
 
-Next-line ignoring works in a similar way. Instead of adding to the end of line you wish to ignore, you can create the ignore comment on its own line just before it. Any alphanumeric text to the left of the phrase will cause `woke` to treat it as an in-line ignore, but any text to the right of the phrase will not be considered.
+Next-line ignoring works in a similar way. Instead of adding to the end of line you wish to ignore, you can create the ignore comment on its own line just before it. Any alphanumeric text to the left of the phrase will cause `language-checker` to treat it as an in-line ignore, but any text to the right of the phrase will not be considered.
 
 !!! note
     Next-line ignore comments takes precedence over in-line ignores, so try to only use one for any given line!
@@ -60,7 +60,7 @@ whitelist and blacklist # wokeignore:rule=whitelist,blacklist
 # wokeignore:rule=whitelist,blacklist
 whitelist and blacklist
 
-# wokeignore:rule=whitelist text here won't be considered by woke even if it contains whitelist
+# wokeignore:rule=whitelist text here won't be considered by language-checker even if it contains whitelist
 this line with whitelist will still be ignored
 ```
 
@@ -77,7 +77,7 @@ func main() {
 
 ## Nested Ignore Files
 
-`woke` will apply ignore rules from nested ignore files to any child files/folders, similar to a nested `.gitignore` file. Nested ignore files work for any ignore file type listed above.
+`language-checker` will apply ignore rules from nested ignore files to any child files/folders, similar to a nested `.gitignore` file. Nested ignore files work for any ignore file type listed above.
 
 ```txt
 project

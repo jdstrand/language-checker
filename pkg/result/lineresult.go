@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"go/token"
 
-	"github.com/get-woke/woke/pkg/rule"
+	"github.com/jdstrand/language-checker/pkg/rule"
 )
 
 // MaxLineLength is the max line length that this printer

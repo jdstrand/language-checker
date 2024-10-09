@@ -5,10 +5,10 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/get-woke/woke/pkg/util"
+	"github.com/jdstrand/language-checker/pkg/util"
 )
 
-var ignoreRuleRegex = regexp.MustCompile(`wokeignore:rule=(\S+)`)
+var ignoreRuleRegex = regexp.MustCompile(`langcheckignore:rule=(\S+)`)
 
 const wordBoundary = `\b`
 
@@ -151,9 +151,9 @@ func (r *Rule) ReasonWithNote(finding string) string {
 }
 
 // CanIgnoreLine returns a boolean value if the line contains the ignore directive.
-// For example, if a line has anywhere, wokeignore:rule=whitelist
+// For example, if a line has anywhere, langcheckignore:rule=whitelist
 // (should be commented out via whatever the language comment syntax is)
-// it will not report that line in finding with the Rule with the name `whitelist` wokeignore:rule=whitelist
+// it will not report that line in finding with the Rule with the name `whitelist` langcheckignore:rule=whitelist
 func (r *Rule) CanIgnoreLine(line string) bool {
 	matches := ignoreRuleRegex.FindAllStringSubmatch(line, -1)
 	if matches == nil {
@@ -175,10 +175,10 @@ func (r *Rule) CanIgnoreLine(line string) bool {
 	return false
 }
 
-// IsDirectiveOnlyLine returns a boolean value if the line contains only the wokeignore directive.
-// For example, if a line is only a single-line comment containing wokeignore:rule=xyz with no other
+// IsDirectiveOnlyLine returns a boolean value if the line contains only the langcheckignore directive.
+// For example, if a line is only a single-line comment containing langcheckignore:rule=xyz with no other
 // alphanumeric characters to the left of the directive, it will return true that it is a directive-only line.
-// Any text to the right of the wokeignore directive will not be considered by woke for findings.
+// Any text to the right of the langcheckignore directive will not be considered by language-checker for findings.
 func IsDirectiveOnlyLine(line string) bool {
 	indices := ignoreRuleRegex.FindStringIndex(line)
 	if indices == nil {

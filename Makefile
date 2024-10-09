@@ -1,11 +1,11 @@
 
 build:
-	docker build -t woke -f dev/Dockerfile .
+	docker build -t language-checker -f dev/Dockerfile .
 
 run:
 	docker run --rm -it \
-		-v `pwd`:/go/src/github.com/get-woke/woke \
-		woke "./*.go ./**/*.go ./**/**/*.go *.yaml"
+		-v `pwd`:/go/src/github.com/jdstrand/language-checker \
+		language-checker "./*.go ./**/*.go ./**/**/*.go *.yaml"
 
 .PHONY: build run
 

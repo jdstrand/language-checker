@@ -11,9 +11,9 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/get-woke/woke/pkg/ignore"
-	"github.com/get-woke/woke/pkg/result"
-	"github.com/get-woke/woke/pkg/rule"
+	"github.com/jdstrand/language-checker/pkg/ignore"
+	"github.com/jdstrand/language-checker/pkg/result"
+	"github.com/jdstrand/language-checker/pkg/rule"
 )
 
 type testPrinter struct {

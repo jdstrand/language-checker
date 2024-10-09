@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/get-woke/woke/pkg/result"
+	"github.com/jdstrand/language-checker/pkg/result"
 )
 
 // JSON is a JSON printer meant for a machine to read

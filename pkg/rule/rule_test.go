@@ -77,15 +77,15 @@ func TestRule_CanIgnoreLine(t *testing.T) {
 		assertion assert.BoolAssertionFunc
 	}{
 		{"finding without comment", "rule1", assert.False},
-		{"finding with correct comment", "rule1 #wokeignore:rule=rule1", assert.True},
-		{"finding with space as rule", "rule1 #wokeignore:rule= ", assert.False},
-		{"finding with invalid comment", "rule1 #wokeignore:rule", assert.False},
-		{"finding with tab as rule", "rule1 #wokeignore:rule=\t", assert.False},
-		{"finding with multiple rules", "rule1 #wokeignore:rule=rule1,rule2", assert.True},
-		{"finding with incorrect comment", "rule1 #wokeignore:rule=rule2", assert.False},
-		{"no finding with correct comment", "rule2 #wokeignore:rule=rule1", assert.True},
-		{"finding with text after ignore", "rule1 #wokeignore:rule=rule1 something else", assert.True},
-		{"finding with multiple ignores", "rule1 #wokeignore:rule=rule1 wokeignore:rule=rule2", assert.True},
+		{"finding with correct comment", "rule1 #langcheckignore:rule=rule1", assert.True},
+		{"finding with space as rule", "rule1 #langcheckignore:rule= ", assert.False},
+		{"finding with invalid comment", "rule1 #langcheckignore:rule", assert.False},
+		{"finding with tab as rule", "rule1 #langcheckignore:rule=\t", assert.False},
+		{"finding with multiple rules", "rule1 #langcheckignore:rule=rule1,rule2", assert.True},
+		{"finding with incorrect comment", "rule1 #langcheckignore:rule=rule2", assert.False},
+		{"no finding with correct comment", "rule2 #langcheckignore:rule=rule1", assert.True},
+		{"finding with text after ignore", "rule1 #langcheckignore:rule=rule1 something else", assert.True},
+		{"finding with multiple ignores", "rule1 #langcheckignore:rule=rule1 langcheckignore:rule=rule2", assert.True},
 	}
 
 	for _, tt := range tests {
@@ -169,12 +169,12 @@ func Test_maskInlineIgnore(t *testing.T) {
 		expected string
 	}{
 		{
-			desc:     "replace wokeignore:rule",
-			line:     "wokeignore:rule=master-slave",
+			desc:     "replace langcheckignore:rule",
+			line:     "langcheckignore:rule=master-slave",
 			expected: "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00",
 		},
 		{
-			desc:     "not replace wokeignore:rule",
+			desc:     "not replace langcheckignore:rule",
 			line:     "no inline ignore",
 			expected: "no inline ignore",
 		},
@@ -213,20 +213,20 @@ func Test_IsDirectiveOnlyLine(t *testing.T) {
 		line      string
 		assertion assert.BoolAssertionFunc
 	}{
-		{"text and no wokeignore", "some text", assert.False},
-		{"text, then wokeignore", "some text #wokeignore:rule=rule1", assert.False},
-		{"text, then invalid wokeignore", "some text #wokeignore:rule", assert.False},
-		{"text, then multiple rules in wokeignore", "some text #wokeignore:rule=rule1,rule2", assert.False},
-		{"text, then text after ignore", "some text #wokeignore:rule=rule1 something else", assert.False},
-		{"text, then multiple ignores", "some text #wokeignore:rule=rule1 wokeignore:rule=rule2", assert.False},
+		{"text and no langcheckignore", "some text", assert.False},
+		{"text, then langcheckignore", "some text #langcheckignore:rule=rule1", assert.False},
+		{"text, then invalid langcheckignore", "some text #langcheckignore:rule", assert.False},
+		{"text, then multiple rules in langcheckignore", "some text #langcheckignore:rule=rule1,rule2", assert.False},
+		{"text, then text after ignore", "some text #langcheckignore:rule=rule1 something else", assert.False},
+		{"text, then multiple ignores", "some text #langcheckignore:rule=rule1 langcheckignore:rule=rule2", assert.False},
 		{"empty line", "", assert.False},
-		{"only wokeignore", "#wokeignore:rule=rule1", assert.True},
-		// any text to the right of wokeignore when line starts with wokeignore will not be considered by woke for findings
-		{"wokeignore, then text", "#wokeignore:rule=rule1 something else", assert.True},
-		{"non-alphanumeric text before and after wokeignore", "<!-- wokeignore:rule=rule1 -->", assert.True},
-		{"spaces before wokeignore", "     #wokeignore:rule=rule1", assert.True},
-		{"tabs before wokeignore", "\t\t\t#wokeignore:rule=rule1", assert.True},
-		{"tabs and spaces before wokeignore", " \t \t \t #wokeignore:rule=rule1", assert.True},
+		{"only langcheckignore", "#langcheckignore:rule=rule1", assert.True},
+		// any text to the right of langcheckignore when line starts with langcheckignore will not be considered by language-checker for findings
+		{"langcheckignore, then text", "#langcheckignore:rule=rule1 something else", assert.True},
+		{"non-alphanumeric text before and after langcheckignore", "<!-- langcheckignore:rule=rule1 -->", assert.True},
+		{"spaces before langcheckignore", "     #langcheckignore:rule=rule1", assert.True},
+		{"tabs before langcheckignore", "\t\t\t#langcheckignore:rule=rule1", assert.True},
+		{"tabs and spaces before langcheckignore", " \t \t \t #langcheckignore:rule=rule1", assert.True},
 	}
 
 	for _, tt := range tests {

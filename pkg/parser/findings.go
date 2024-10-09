@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/get-woke/woke/pkg/result"
-	"github.com/get-woke/woke/pkg/rule"
-	"github.com/get-woke/woke/pkg/util"
+	"github.com/jdstrand/language-checker/pkg/result"
+	"github.com/jdstrand/language-checker/pkg/rule"
+	"github.com/jdstrand/language-checker/pkg/util"
 
 	"github.com/rs/zerolog/log"
 )

@@ -5,8 +5,8 @@ import (
 	"go/token"
 	"testing"
 
-	"github.com/get-woke/woke/pkg/result"
-	"github.com/get-woke/woke/pkg/rule"
+	"github.com/jdstrand/language-checker/pkg/result"
+	"github.com/jdstrand/language-checker/pkg/rule"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -41,7 +41,7 @@ func TestFormatResultForCheckstyle(t *testing.T) {
 	expected := `<?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="5.0">
   <file name="my/file">
-    <error column="3" line="5" message="` + "`" + `whitelist` + "`" + ` may be insensitive, use ` + "`" + `allowlist` + "`" + ` instead" severity="warning" source="woke"></error>
+    <error column="3" line="5" message="` + "`" + `whitelist` + "`" + ` may be insensitive, use ` + "`" + `allowlist` + "`" + ` instead" severity="warning" source="language-checker"></error>
   </file>
 </checkstyle>`
 	assert.Equal(t, expected, buf.String())

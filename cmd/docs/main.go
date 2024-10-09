@@ -4,14 +4,14 @@ import (
 	"log"
 	"os"
 
-	"github.com/get-woke/woke/cmd"
+	"github.com/jdstrand/language-checker/cmd"
 
 	"github.com/spf13/cobra/doc"
 )
 
 func main() {
 	if len(os.Args) < 2 {
-		log.Fatalln("Output directory required! run `go run main.go <output_directory>` to output to `<output_directory>/woke.md`")
+		log.Fatalln("Output directory required! run `go run main.go <output_directory>` to output to `<output_directory>`")
 	}
 
 	rootCmd := cmd.GetRootCmd()
