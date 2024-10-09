@@ -68,7 +68,7 @@ func (suite *IgnoreTestSuite) SetupTest() {
 	err = f.Close()
 	suite.NoError(err)
 
-	f, err = fs.Create(".wokeignore")
+	f, err = fs.Create(".langcheckignore")
 	suite.NoError(err)
 	_, err = f.Write([]byte("*.WOKEIGNORE\ntestFolder\n"))
 	suite.NoError(err)
@@ -86,7 +86,7 @@ func BenchmarkIgnore(b *testing.B) {
 		for j := 0; j < 10; j++ {
 			err := fs.MkdirAll(fs.Join(fmt.Sprintf("%d", i), fmt.Sprintf("%d", j)), os.ModePerm)
 			assert.NoError(b, err)
-			f, err := fs.Create(".wokeignore")
+			f, err := fs.Create(".langcheckignore")
 			assert.NoError(b, err)
 			_, err = f.Write([]byte("testFolder"))
 			assert.NoError(b, err)
@@ -156,9 +156,9 @@ func (suite *IgnoreTestSuite) TestIgnoreDefaultIgoreFiles_Match() {
 	suite.True(i.Match(filepath.Join("testdata", "test.FROMARGUMENT"), false)) // From .gitignore
 	suite.True(i.Match(filepath.Join("testdata", "test.DS_Store"), false))     // From .gitignore
 	suite.True(i.Match(filepath.Join("testdata", "test.IGNORE"), false))       // From .ignore
-	suite.True(i.Match(filepath.Join("testdata", "test.WOKEIGNORE"), false))   // From .wokeignore
-	suite.True(i.Match(filepath.Join("testdata", "testFolder"), true))         // From .wokeignore
-	suite.False(i.Match(filepath.Join("testdata", "notTestFolder"), true))     // From .wokeignore
+	suite.True(i.Match(filepath.Join("testdata", "test.WOKEIGNORE"), false))   // From .langcheckignore
+	suite.True(i.Match(filepath.Join("testdata", "testFolder"), true))         // From .langcheckignore
+	suite.False(i.Match(filepath.Join("testdata", "notTestFolder"), true))     // From .langcheckignore
 	suite.False(i.Match(filepath.Join("testdata", "test.NOTIGNORED"), false))  // From .notincluded - making sure only default are included
 }
 

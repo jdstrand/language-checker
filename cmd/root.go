@@ -152,7 +152,7 @@ func init() {
 	rootCmd.PersistentFlags().BoolVar(&exitOneOnFailure, "exit-1-on-failure", false, "Exit with exit code 1 on failures")
 	rootCmd.PersistentFlags().BoolVar(&stdin, "stdin", false, "Read from stdin")
 	rootCmd.PersistentFlags().BoolVar(&debug, "debug", false, "Enable debug logging")
-	rootCmd.PersistentFlags().BoolVar(&noIgnore, "no-ignore", false, "Ignored files in .gitignore, .ignore, .wokeignore, .git/info/exclude, and inline ignores are processed")
+	rootCmd.PersistentFlags().BoolVar(&noIgnore, "no-ignore", false, "Ignored files in .gitignore, .ignore, .langcheckignore, .git/info/exclude, and inline ignores are processed")
 	rootCmd.PersistentFlags().StringVarP(&outputName, "output", "o", printer.OutFormatText, fmt.Sprintf("Output type [%s]", printer.OutFormatsString))
 	rootCmd.PersistentFlags().BoolVar(&disableDefaultRules, "disable-default-rules", false, "Disable the default ruleset")
 }

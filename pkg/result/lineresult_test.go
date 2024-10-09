@@ -20,9 +20,9 @@ func TestFindResults(t *testing.T) {
 	assert.Len(t, rs, 0)
 
 	// inline-ignoring is handled in Parser.generateFileFindings, not FindResults
-	rs = FindResults(&rule.TestRule, "my/file", "this has the term whitelist #wokeignore:rule=whitelist", 1)
+	rs = FindResults(&rule.TestRule, "my/file", "this has the term whitelist #langcheckignore:rule=whitelist", 1)
 	assert.Len(t, rs, 1)
-	rs = FindResults(&rule.TestRule, "my/file", "/* wokeignore:rule=whitelist */ this has the term whitelist", 1)
+	rs = FindResults(&rule.TestRule, "my/file", "/* langcheckignore:rule=whitelist */ this has the term whitelist", 1)
 	assert.Len(t, rs, 1)
 }
 

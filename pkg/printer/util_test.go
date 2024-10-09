@@ -17,8 +17,8 @@ func generateResults(filename string) []result.Result {
 	return []result.Result{
 		result.LineResult{
 			Rule:    &rule.TestRule,
-			Finding: "whitelist",                  // wokeignore:rule=whitelist
-			Line:    "this whitelist must change", // wokeignore:rule=whitelist
+			Finding: "whitelist",                  // langcheckignore:rule=whitelist
+			Line:    "this whitelist must change", // langcheckignore:rule=whitelist
 			StartPosition: &token.Position{
 				Filename: filename,
 				Offset:   0,
@@ -45,8 +45,8 @@ func generateSecondResults(filename string) []result.Result {
 	return []result.Result{
 		result.LineResult{
 			Rule:    &rule.TestErrorRule,
-			Finding: "slave",                       // wokeignore:rule=slave
-			Line:    "this slave term must change", // wokeignore:rule=slave
+			Finding: "slave",                       // langcheckignore:rule=slave
+			Line:    "this slave term must change", // langcheckignore:rule=slave
 			StartPosition: &token.Position{
 				Filename: filename,
 				Offset:   0,

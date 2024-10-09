@@ -62,7 +62,7 @@ Loop:
 		case err == nil || (err == io.EOF && text != ""):
 			text = strings.TrimSuffix(text, "\n")
 
-			// Store current line's wokeignore text if ignoring next line
+			// Store current line's langcheckignore text if ignoring next line
 			if rule.IsDirectiveOnlyLine(text) {
 				ignoreNextLineText = text
 				line++
@@ -79,7 +79,7 @@ Loop:
 							Msg("ignoring via in-line")
 						continue
 					} else if r.CanIgnoreLine(ignoreNextLineText) {
-						// Check current rule against prev line's next-line wokeignore text (if applicable)
+						// Check current rule against prev line's next-line langcheckignore text (if applicable)
 						log.Debug().
 							Str("rule", r.Name).
 							Str("file", filename).

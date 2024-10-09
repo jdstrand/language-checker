@@ -3,8 +3,8 @@ package rule
 // TestRule is only meant to be used in tests.
 // TODO: Use test terms
 var TestRule = Rule{
-	Name:         "whitelist",                                                        // wokeignore:rule=whitelist
-	Terms:        []string{"whitelist", "white-list", "whitelisted", "white-listed"}, // wokeignore:rule=whitelist
+	Name:         "whitelist",                                                        // langcheckignore:rule=whitelist
+	Terms:        []string{"whitelist", "white-list", "whitelisted", "white-listed"}, // langcheckignore:rule=whitelist
 	Alternatives: []string{"allowlist"},
 	Severity:     1,
 	Options: Options{
@@ -13,8 +13,8 @@ var TestRule = Rule{
 }
 
 var TestErrorRule = Rule{
-	Name:         "slave",           // wokeignore:rule=slave
-	Terms:        []string{"slave"}, // wokeignore:rule=slave
+	Name:         "slave",           // langcheckignore:rule=slave
+	Terms:        []string{"slave"}, // langcheckignore:rule=slave
 	Alternatives: []string{"follower"},
 	Severity:     0,
 	Options: Options{

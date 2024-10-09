@@ -160,7 +160,7 @@ func parsePathTests(t *testing.T) {
 	})
 
 	t.Run("ignored inline", func(t *testing.T) {
-		f, err := newFile(t, "i have a whitelist finding, but am ignored # wokeignore:rule=whitelist\n")
+		f, err := newFile(t, "i have a whitelist finding, but am ignored # langcheckignore:rule=whitelist\n")
 		assert.NoError(t, err)
 
 		p, err := testParser()
@@ -173,7 +173,7 @@ func parsePathTests(t *testing.T) {
 	})
 
 	t.Run("ignored inline with no ignorer", func(t *testing.T) {
-		f, err := newFile(t, "i have a whitelist finding, but am ignored # wokeignore:rule=whitelist\n")
+		f, err := newFile(t, "i have a whitelist finding, but am ignored # langcheckignore:rule=whitelist\n")
 		assert.NoError(t, err)
 
 		p, err := testParser()

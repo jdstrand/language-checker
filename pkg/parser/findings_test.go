@@ -115,16 +115,16 @@ func newFileWithPrefix(t *testing.T, prefix, text string) (*os.File, error) {
 	return tmpFile, err
 }
 
-// Tests for when a rule name is used with inline wokeignore, when that rule name matches another rule
+// Tests for when a rule name is used with inline langcheckignore, when that rule name matches another rule
 func TestGenerateFileFindingsOverlappingRules(t *testing.T) {
 	tests := []struct {
 		desc    string
 		content string
 		matches int
 	}{
-		{"overlapping rule", "this has master #wokeignore:rule=master-slave", 0},
-		{"overlapping rule two ignores", "this has master #wokeignore:rule=master-slave,slave", 0},
-		{"wrong rule", "this has whitelist # wokeignore:rule=blacklist", 1},
+		{"overlapping rule", "this has master #langcheckignore:rule=master-slave", 0},
+		{"overlapping rule two ignores", "this has master #langcheckignore:rule=master-slave,slave", 0},
+		{"wrong rule", "this has whitelist # langcheckignore:rule=blacklist", 1},
 	}
 	for _, tc := range tests {
 		t.Run(tc.desc, func(t *testing.T) {
@@ -140,17 +140,17 @@ func TestGenerateFileFindingsOverlappingRules(t *testing.T) {
 	}
 }
 
-// Tests for next-line wokeignore
+// Tests for next-line langcheckignore
 func TestGenerateFileFindingsNewLineIgnores(t *testing.T) {
 	tests := []struct {
 		desc    string
 		content string
 		matches int
 	}{
-		{"not matching newline ignore", "#wokeignore:rule=master-slave\n this has whitelist", 1},
-		{"matching newline ignore", "#wokeignore:rule=whitelist\n this has whitelist", 0},
-		{"matching newline ignore", "#wokeignore:rule=whitelist whitelist\n this has whitelist", 0},
-		{"newline ignore with potential match two lines down", "#wokeignore:rule=whitelist\n this line is fine\n this has whitelist", 1},
+		{"not matching newline ignore", "#langcheckignore:rule=master-slave\n this has whitelist", 1},
+		{"matching newline ignore", "#langcheckignore:rule=whitelist\n this has whitelist", 0},
+		{"matching newline ignore", "#langcheckignore:rule=whitelist whitelist\n this has whitelist", 0},
+		{"newline ignore with potential match two lines down", "#langcheckignore:rule=whitelist\n this line is fine\n this has whitelist", 1},
 	}
 	for _, tc := range tests {
 		t.Run(tc.desc, func(t *testing.T) {

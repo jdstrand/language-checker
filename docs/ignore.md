@@ -15,12 +15,12 @@ ignore_files:
 
 `language-checker` will also automatically ignore anything listed in `.gitignore`, `.ignore`, and `.git/info/exclude`.
 
-## `.wokeignore`
+## `.langcheckignore`
 
-You may also specify a `.wokeignore` file at the root of the directory to add additional ignore files.
+You may also specify a `.langcheckignore` file at the root of the directory to add additional ignore files.
 This also follows the [gitignore](https://git-scm.com/docs/gitignore) convention.
 
-See [.wokeignore.example]({{config.repo_url}}/blob/main/.wokeignore.example) for a collection of common files and directories that may contain generated [SHA](https://en.wikipedia.org/wiki/Secure_Hash_Algorithms) and [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)s. Dependency directories are also shown in the example as the linter will parse dependency source code and possibly find errors.
+See [.langcheckignore.example]({{config.repo_url}}/blob/main/.langcheckignore.example) for a collection of common files and directories that may contain generated [SHA](https://en.wikipedia.org/wiki/Secure_Hash_Algorithms) and [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)s. Dependency directories are also shown in the example as the linter will parse dependency source code and possibly find errors.
 
 ## In-line and next-line ignoring
 
@@ -42,25 +42,25 @@ Next-line ignoring works in a similar way. Instead of adding to the end of line 
     Next-line ignore comments takes precedence over in-line ignores, so try to only use one for any given line!
 
 ```bash
-This line has RULE_NAME but will be ignored # wokeignore:rule=RULE_NAME
+This line has RULE_NAME but will be ignored # langcheckignore:rule=RULE_NAME
 
-# wokeignore:rule=RULENAME
+# langcheckignore:rule=RULENAME
 Here is another line with RULE_NAME that will be ignored
 
 # a couple of examples ignoring the following line for the whitelist rule
-whitelist # wokeignore:rule=whitelist
+whitelist # langcheckignore:rule=whitelist
 
-# wokeignore:rule=whitelist
+# langcheckignore:rule=whitelist
 whitelist
 
 # a couple of examples doing the same for multiple rules
 # rule names must be comma-separated with no spaces
-whitelist and blacklist # wokeignore:rule=whitelist,blacklist
+whitelist and blacklist # langcheckignore:rule=whitelist,blacklist
 
-# wokeignore:rule=whitelist,blacklist
+# langcheckignore:rule=whitelist,blacklist
 whitelist and blacklist
 
-# wokeignore:rule=whitelist text here won't be considered by language-checker even if it contains whitelist
+# langcheckignore:rule=whitelist text here won't be considered by language-checker even if it contains whitelist
 this line with whitelist will still be ignored
 ```
 
@@ -68,9 +68,9 @@ Here's an example in go:
 
 ```go
 func main() {
-  fmt.Println("here is the whitelist") // wokeignore:rule=whitelist
+  fmt.Println("here is the whitelist") // langcheckignore:rule=whitelist
 
-  // wokeignore:rule=blacklist
+  // langcheckignore:rule=blacklist
   fmt.Println("and here is the blacklist")
 }
 ```
@@ -82,12 +82,12 @@ func main() {
 ```txt
 project
 │   README.md
-│   .wokeignore (applies to whole project)
+│   .langcheckignore (applies to whole project)
 │
 └───folder1
 │   │   file011.txt
 │   │   file012.txt
-│   │   .wokeignore (applies to file011.txt, file012.txt, and subfolder1)
+│   │   .langcheckignore (applies to file011.txt, file012.txt, and subfolder1)
 │   │
 │   └───subfolder1
 │       │   file111.txt

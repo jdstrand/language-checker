@@ -22,7 +22,7 @@ type Ignore struct {
 var defaultIgnoreFiles = []string{
 	".gitignore",
 	".ignore",
-	".wokeignore",
+	".langcheckignore",
 }
 
 // Given a workingDir (example: /root/proj/subDir/curDir)
