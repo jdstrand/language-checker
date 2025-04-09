@@ -20,4 +20,8 @@ prof-mem: prof
 prof-cpu: prof
 	pprof -http=localhost:8080 cpu.prof
 
+test:
+	go vet ./...
+	go test -v ./...
+
 .PHONY: prof prof-mem prof-cpu
