@@ -131,7 +131,7 @@ func (p *Parser) walkDir(dirname string, done chan bool) <-chan string {
 
 	go func() {
 		defer close(paths)
-		_ = walker.Walk(dirname, func(path string, info os.FileMode) error {
+		_ = walker.Walk(dirname, func(path string, info os.DirEntry) error {
 			if p.Ignorer != nil && p.Ignorer.Match(path, info.IsDir()) {
 				log.Debug().Str("file", path).Str("reason", "ignored file").Msg("skipping")
 				return nil
