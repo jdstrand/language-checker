@@ -1,11 +1,12 @@
 module github.com/jdstrand/language-checker
 
-go 1.24
+go 1.23.0
+
+toolchain go1.23.7
 
 require (
 	github.com/caitlinelfring/go-env-default v1.1.0
 	github.com/fatih/color v1.13.0
-	github.com/get-woke/fastwalk v1.0.0
 	github.com/get-woke/go-git/v5 v5.4.6
 	github.com/go-git/go-billy/v5 v5.6.0
 	github.com/mattn/go-colorable v0.1.12

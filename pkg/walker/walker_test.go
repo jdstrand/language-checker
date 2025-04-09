@@ -31,7 +31,7 @@ func TestWalker_Walk(t *testing.T) {
 		assert.NoError(t, file.Close())
 	}
 
-	err = Walk(dir, func(p string, typ os.FileMode) error {
+	err = Walk(dir, func(p string, typ os.DirEntry) error {
 		assert.False(t, isDotGit(p), "path should not be returned in walk: %s", p)
 		return nil
 	})
@@ -59,7 +59,7 @@ func BenchmarkWalker_Walk(b *testing.B) {
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		err := Walk(dir, func(p string, typ os.FileMode) error {
+		err := Walk(dir, func(p string, typ os.DirEntry) error {
 			assert.False(b, isDotGit(p), "path should not be returned in walk: %s", p)
 			return nil
 		})
