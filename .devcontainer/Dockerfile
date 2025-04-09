@@ -1,6 +1,6 @@
 # [Choice] Go version: 1, 1.16, 1.15
-ARG VARIANT=1.18
-FROM mcr.microsoft.com/vscode/devcontainers/go:0-${VARIANT}
+ARG VARIANT=1.23
+FROM mcr.microsoft.com/devcontainers/go:${VARIANT}
 
 # [Option] Install Node.js
 ARG DEBIAN_FRONTEND=noninteractive
@@ -9,7 +9,7 @@ ARG NODE_VERSION="lts/*"
 RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi \
     # Install Python
     && apt-get update \
-    && apt-get install -y python3.6 python3-pip \
+    && apt-get install -y python3.11 python3-pip pipx \
     # Clean up
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
@@ -17,7 +17,7 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/l
 RUN apt-get update \
     && apt-get install -y shellcheck \
     && su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g markdownlint-cli" 2>&1 \
-    && pip3 install pre-commit \
+    && pipx install pre-commit \
     # Clean up
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
