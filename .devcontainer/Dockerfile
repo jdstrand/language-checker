@@ -1,5 +1,5 @@
 # [Choice] Go version: 1, 1.16, 1.15
-ARG VARIANT=1.23
+ARG VARIANT=1.25
 FROM mcr.microsoft.com/devcontainers/go:${VARIANT}
 
 # [Option] Install Node.js
