@@ -1,5 +1,4 @@
-
-FROM golang:1.23
+FROM golang:1.25
 
 RUN apt-get update && apt-get install -y inotify-tools
 
